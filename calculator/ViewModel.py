@@ -41,7 +41,10 @@ class ViewModel:
         elif lbl == '=':
             self.history += self.entry.get()
             try:
-                eval = ne.evaluate(self.history)
+                if self.history[0] == "0":
+                    eval = ne.evaluate(self.history[1:])
+                else:
+                    eval = ne.evaluate(self.history)
                 self.history = ""
                 self.history_lbl.config(text=self.history)
                 self.entry.delete(0, "end")
