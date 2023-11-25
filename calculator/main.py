@@ -4,7 +4,7 @@ import numexpr as ne
 
 def validateNumbers(P):
     try:
-        if P[0] == "0":
+        if P[0] == "0" and P[1] != ".":
             ne.evaluate(P[1:])
             return True
         ne.evaluate(P)
